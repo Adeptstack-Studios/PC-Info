@@ -1,0 +1,44 @@
+﻿<Page x:Class="PC_Component_Info.sysinfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PC_Component_Info"
+      mc:Ignorable="d" 
+      d:DesignHeight="545" d:DesignWidth="1080"
+      Title="sysinfo">
+
+    <Page.DataContext>
+        <local:Vars/>
+    </Page.DataContext>
+
+    <StackPanel>
+        <Label Content="Über diesen PC:" FontWeight="Bold" FontSize="14" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_PC_Name" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_User_Name" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_OS_x86_x64" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_OSP" Foreground="{Binding FGC}"/>
+
+        <Label Content="Prozessor:" FontSize="14" FontWeight="Bold" Foreground="{Binding FGC}" />
+        <Label x:Name="LBL_CPU_Name" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_cpu_threads" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_cpu_cores" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_cpu_takt" Foreground="{Binding FGC}"/>
+
+        <Label Content="Arbeitsspeicher:" FontSize="14" FontWeight="Bold" Foreground="{Binding FGC}" />
+        <Label x:Name="LBL_ram_ges" Foreground="{Binding FGC}"/>
+        <Label x:Name="total_ram" Foreground="{Binding FGC}"/>
+        <Label x:Name="hardware_ram" Foreground="{Binding FGC}"/>
+        <Label Content="Auslastung:" FontWeight="Bold" Foreground="{Binding FGC}"/>
+        <ProgressBar x:Name="PB_1" Height="20" Width="200" HorizontalAlignment="Left" Margin="0" Foreground="{x:Static SystemParameters.WindowGlassBrush}" />
+        <Label x:Name="free_ram" Foreground="{Binding FGC}"/>
+        <Label x:Name="used_ram" Foreground="{Binding FGC}"/>
+
+        <!--<Label x:Name="LBL_ram_takt"/>-->
+
+        <Label Content="Grafikkarte:" FontSize="14" FontWeight="Bold" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_GPU_Name" Foreground="{Binding FGC}"/>
+        <Label x:Name="LBL_GPU_VRAM" Foreground="{Binding FGC}"/>
+
+    </StackPanel>
+</Page>

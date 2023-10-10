@@ -1,0 +1,22 @@
+﻿<Window x:Class="PC_Component_Info.cl_win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Component_Info"
+        mc:Ignorable="d"
+        Title="cl_win" Height="550" Width="400" Background="{Binding BGC}" Icon="/PCInfo.ico" SizeToContent="Height" MaxHeight="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:Vars/>
+    </Window.DataContext>
+    
+    <StackPanel>
+        <TextBlock Text="Was ist neu in dieser Version" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,20" Foreground="{Binding FGC}" />
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="20, 10, 10, 40">
+            <TextBlock x:Name="TB_cl" TextWrapping="Wrap" Foreground="{Binding FGC}" Width="350"  FontSize="14" FontWeight="Medium"    />
+        </ScrollViewer>
+        
+    </StackPanel>
+</Window>
