@@ -107,7 +107,6 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal" Height="40" HorizontalAlignment="Left">
                 <Image Source="PCInfo.ico" Margin="10,-0" Height="48" Width="48" />
-                <!--<TextBlock Text="PLP-NoTas"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontWeight="Medium" />-->
             </StackPanel>
             <Grid Grid.Column="1">
                 <TextBlock Background="Transparent" />
@@ -117,22 +116,9 @@
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Column="4" Height="40" WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Right">
                 <Button Width="45" Foreground="White" FontWeight="Black" x:Name="min_btn" ToolTip="Minimize" Content="___" FontSize="12" Padding="0,0,0,8" Style="{StaticResource WindowBTN}" />
-                <!--<Button Width="45" x:Name="max_btn" ToolTip="Maximize" Content="[ ]" FontSize="16" Style="{StaticResource WindowBTN}" />-->
                 <Button Width="45" Foreground="White" FontWeight="Medium" x:Name="close_btn" ToolTip="Close" Content="X" FontSize="18" Style="{StaticResource WindowCloseBTN}" />
             </StackPanel>
         </Grid>
-
-        <!--<StackPanel Visibility="Collapsed" Grid.Column="0" x:Name="SP_1" Background="#FF303030" Width="50" HorizontalAlignment="Left" Height="570">
-            <Button x:Name="test" Click="test_Click" Margin="10" Width="30" Height="30" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Foreground="White">
-                <Image Source="/menu.png" />
-
-            </Button>
-            <Button Content="Laufwerke" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand" Visibility="Collapsed" BorderThickness="0"/>
-            <Button Content="System Infos" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand" Visibility="Collapsed" BorderThickness="0"/>
-            <CheckBox Style="{StaticResource ToggleSwitch}" Content="Darkmode" x:Name="CHB_DM" Checked="CHB_DM_Checked" Unchecked="CHB_DM_Unchecked" IsChecked="True" Margin="10" FontSize="14" VerticalContentAlignment="Center" Foreground="White" Visibility="Collapsed"/>
-            <Button x:Name="HuÜI" Content="Infos &amp; Hilfe" Click="help_about_Click" Background="White" Margin="0,270,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" Visibility="Collapsed" BorderThickness="0"/>
-            <Button x:Name="Exit" Content="Schließen" Click="Exit_Click" Background="OrangeRed" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" Visibility="Collapsed" VerticalAlignment="Bottom" BorderThickness="0"/>
-        </StackPanel>-->
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -144,15 +130,14 @@
                 <StackPanel Grid.Column="0" Margin="8,20,8,0" >
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="Laufwerke" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 5" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="System Infos" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
-                    <!--<CheckBox Style="{StaticResource ToggleSwitch}" Content="Darkmode" x:Name="CHB_DM" Checked="CHB_DM_Checked" Unchecked="CHB_DM_Unchecked" IsChecked="True" Margin="10" FontSize="14" VerticalContentAlignment="Center" Foreground="White" />-->
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="Infos &amp; Hilfe" Click="help_about_Click" Margin="0,330,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="Feedback &amp; Support" Click="help_about_Click" Margin="0,330,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="Schließen" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
-                    <TextBlock Text="v1.2.2" Foreground="White" TextAlignment="Center" />
+                    <TextBlock Text="{x:Static local:Vars.version}" Foreground="White" TextAlignment="Center" />
                 </StackPanel>
             </Border>
 
-            <Border Background="#ff303030" Margin="5,10,20,40" CornerRadius="20" Grid.Column="1" >
-                <Frame MouseLeftButtonDown="PageFrame_1_MouseLeftButtonDown" x:Name="PageFrame_1" Grid.Column="1" NavigationUIVisibility="Hidden" Width="880" HorizontalAlignment="Left" Margin="25,0,0,0"/>
+            <Border Background="#ff303030" Margin="5,10,20,40" CornerRadius="20" Grid.Column="1" x:Name="Frame" >
+                <Frame x:Name="PageFrame_1" Grid.Column="1" NavigationUIVisibility="Hidden" Width="{Binding ElementName=Frame, Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0"/>
             </Border>
 
         </Grid>
