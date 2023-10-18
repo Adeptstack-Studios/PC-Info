@@ -97,7 +97,7 @@
     <Compile Include="HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PC_Drive_Reader.cs" />
+    <Compile Include="DriveReader.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="storage.xaml.cs">
       <DependentUpon>storage.xaml</DependentUpon>

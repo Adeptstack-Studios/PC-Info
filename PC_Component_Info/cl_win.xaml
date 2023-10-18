@@ -5,17 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Component_Info"
         mc:Ignorable="d"
-        Title="cl_win" Height="550" Width="400" Background="{Binding BGC}" Icon="/PCInfo.ico" SizeToContent="Height" MaxHeight="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-
-    <Window.DataContext>
-        <local:Vars/>
-    </Window.DataContext>
+        Title="cl_win" Height="550" Width="400" Background="#ff222222" Icon="/PCInfo.ico" SizeToContent="Height" MaxHeight="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     
     <StackPanel>
-        <TextBlock Text="Was ist neu in dieser Version" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,20" Foreground="{Binding FGC}" />
+        <TextBlock Text="Was ist neu in dieser Version" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,20" Foreground="White" />
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="20, 10, 10, 40">
-            <TextBlock x:Name="TB_cl" TextWrapping="Wrap" Foreground="{Binding FGC}" Width="350"  FontSize="14" FontWeight="Medium"    />
+            <TextBlock x:Name="TB_cl" TextWrapping="Wrap" Foreground="White" Width="350"  FontSize="14" FontWeight="Medium"    />
         </ScrollViewer>
         
     </StackPanel>
