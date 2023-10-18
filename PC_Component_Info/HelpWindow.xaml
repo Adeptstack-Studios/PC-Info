@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:PC_Component_Info"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="Hilfe und Über" Height="450" Width="400" Background="#ff222222">
-
-    <Window.DataContext>
-        <local:Vars/>
-    </Window.DataContext>
+        Title="Feedback &amp; Support" Height="450" Width="400" Background="#ff222222">
 
     <Border Background="#ff303030" CornerRadius="20" Margin="20" >
-        <StackPanel>
-            <Label Foreground="{Binding FGC}" Margin="0, 10 , 0, 0" Content="Über das Produkt" FontSize="14" FontWeight="Bold"/>
-            <Label Foreground="{Binding FGC}" x:Name="LBL_About_Text" Content=" " FontWeight="Bold"/>
-            <Label Foreground="{Binding FGC}" x:Name="LBL_Lizenz_Text" Content=" " FontSize="10"/>
-            <Label Foreground="{Binding FGC}" x:Name="LBL_Version" Content=" " Margin="0 , 10, 0, 0"/>
-            <Label Foreground="{Binding FGC}" Content="Hilfe aus dem Web: " x:Name="LBL_Links" FontWeight="Bold" FontSize="14"/>
-            <Button Height="22" Style="{StaticResource CustomButton}" x:Name="H_LI_BTN" Content="Changelog" Click="H_LI_BTN_Click"/>
-            <Button Height="22" Style="{StaticResource CustomButton}" x:Name="update" Content="Update" Click="update_Click"/>
-            <Button Height="22" Style="{StaticResource CustomButton}" x:Name="website" Content="Webseite" Click="website_Click"/>
-            <Button Height="22" Style="{StaticResource CustomButton}" x:Name="privacy" Content="Privacy" Click="privacy_Click"/>
-            <Button Height="22" Style="{StaticResource CustomButton}" x:Name="github" Content="GitHub" Click="github_Click"/>
-        </StackPanel>
+        <Grid>
+            <StackPanel VerticalAlignment="Top" Margin="10,0,10,0">
+                <Label Foreground="White" Margin="0, 10 , 0, 0" Content="About" FontSize="14" FontWeight="Bold"/>
+                <Label Foreground="White" x:Name="LBL_About_Text" Content=" " FontWeight="Bold"/>
+                <Label Foreground="White" x:Name="LBL_Lizenz_Text" Content=" " FontSize="10"/>
+                <Label Foreground="White" x:Name="LBL_Version" Content=" " Margin="0 , 10, 0, 0"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" Margin="10,0,10,10">
+                <Label Foreground="White" Content="You need help? " x:Name="LBL_Links" FontWeight="Bold" FontSize="14"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="H_LI_BTN" Content="Changelog" Click="H_LI_BTN_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="update" Content="Update" Click="update_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="website" Content="Webseite" Click="website_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="privacy" Content="Privacy" Click="privacy_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="github" Content="GitHub" Click="github_Click"/>
+            </StackPanel>
+        </Grid>
     </Border>
 </Window>
