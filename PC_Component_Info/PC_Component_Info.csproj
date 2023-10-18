@@ -66,7 +66,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -98,7 +98,7 @@
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PC_Drive_Reader.cs" />
-    <Compile Include="PC_Info_Reader.cs" />
+    <Compile Include="SystemInfo.cs" />
     <Compile Include="storage.xaml.cs">
       <DependentUpon>storage.xaml</DependentUpon>
     </Compile>
