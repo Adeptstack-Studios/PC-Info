@@ -13,7 +13,7 @@ namespace PC_Component_Info
     /// </summary>
     public partial class storage : Page
     {
-        PC_Drive_Reader pcdr = new PC_Drive_Reader();
+        DriveReader pcdr = new DriveReader();
 
         public storage()
         {
@@ -30,7 +30,7 @@ namespace PC_Component_Info
             LBL_format_di.Content = "Datei Format: " + pcdr.df;
             LBL_ts_di.Content = "Gesamter Speicherplatz: " + pcdr.ts + "GB";
             LBL_tfs_di.Content = "Freier Speicherplatz: " + pcdr.tfs + "GB";
-            LBL_percent.Content = (((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100) + "%";
+            PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
 
             PB_Drive.Maximum = pcdr.ts;
             PB_Drive.Minimum = 0;
@@ -91,7 +91,7 @@ namespace PC_Component_Info
             LBL_format_di.Content = "Datei Format: " + pcdr.df;
             LBL_ts_di.Content = "Gesamter Speicherplatz: " + pcdr.ts + "GB";
             LBL_tfs_di.Content = "Freier Speicherplatz: " + pcdr.tfs + "GB";
-            LBL_percent.Content = (pcdr.ts - pcdr.tfs) / pcdr.ts * 100 + "%";
+            PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
 
             PB_Drive.Maximum = pcdr.ts;
             PB_Drive.Minimum = 0;
