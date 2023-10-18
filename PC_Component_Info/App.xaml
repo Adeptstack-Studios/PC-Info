@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:PC_Component_Info"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+        <SolidColorBrush x:Key="SystemColor" Color="{x:Static SystemParameters.WindowGlassColor}" />
+        <SolidColorBrush x:Key="DarkerCards" Color="#ff272727" />
+        <SolidColorBrush x:Key="CardContent" Color="#ff2d2d2d" />
+
         <Style TargetType="CheckBox" x:Key="ToggleSwitch">
             <Setter Property="Template">
                 <Setter.Value>
@@ -154,6 +159,152 @@
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter TargetName="bdr_btn_cc" Property="Opacity" Value="0.5"/>
                             </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="{x:Type ProgressBar}"
+       TargetType="{x:Type ProgressBar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid MinHeight="20"
+              MinWidth="200"
+              Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Determinate" />
+                                    <VisualState x:Name="Indeterminate">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="00:00:00"
+                                                 Storyboard.TargetName="PART_Indicator"
+                                                 Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <SolidColorBrush>Transparent</SolidColorBrush>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="PART_Track" CornerRadius="8" BorderThickness="1" BorderBrush="{x:Static SystemParameters.WindowGlassBrush}">
+                                <TextBlock Text="{TemplateBinding Tag}" Foreground="White" FontSize="11.5" Margin="10,0" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                            </Border>
+                            <Border x:Name="PART_Indicator" CornerRadius="8" BorderThickness="0" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" Margin="0,0,0,1" >
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{x:Static SystemParameters.WindowGlassBrush}" />
+        </Style>
+
+        <Style TargetType="TabItem" x:Key="TabItemMC">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="Border" BorderThickness="0" Background="Transparent" BorderBrush="Gainsboro" Height="30" CornerRadius="4" Margin="0">
+                            <Grid>
+                                <TextBlock Text="{TemplateBinding Header}" x:Name="text" Margin="10,2" Foreground="White" FontSize="14" />
+                                <!--<ContentPresenter x:Name="ContentSite"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                ContentSource="Header"
+                                Margin="10,2" />-->
+                                <Border x:Name="bdr" CornerRadius="2,2,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="20" Height="5" Background="{DynamicResource SystemColor}" >
+
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="text" Property="FontWeight" Value="Bold" />
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetName="bdr" Storyboard.TargetProperty="Width" To="20"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetName="bdr" Storyboard.TargetProperty="Width" To="0"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="text" Property="Foreground" Value="LightGray" />
+                                <Setter TargetName="bdr" Property="Width" Value="0"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.15" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color" To="White"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.15" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color" To="White"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color" To="White"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="text" Storyboard.TargetProperty="Foreground.Color"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
