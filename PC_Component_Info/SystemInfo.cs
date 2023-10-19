@@ -7,13 +7,13 @@ namespace PC_Component_Info
 {
     public class SystemInfo
     {
-
-        public (string userName, string machineName) GetNames()
+        //General
+        public static (string userName, string machineName) GetNames()
         {
             return (Environment.UserName, Environment.MachineName);
         }
 
-        public string GetOSInfo()
+        public static string GetOSInfo()
         {
             string osa = "";
             string osv = "";
@@ -34,13 +34,14 @@ namespace PC_Component_Info
             return $"{osv} ({osa})";
         }
 
-        public string GetOSPlatform()
+        public static string GetOSPlatform()
         {
             ComputerInfo ci = new ComputerInfo();
             return ci.OSPlatform.ToString();
         }
 
-        public (string name, string architecture) GetProcessorName()
+        //Processor
+        public static (string name, string architecture) GetProcessorInfo()
         {
             string cpu = "";
             string architecture = "";
@@ -68,7 +69,7 @@ namespace PC_Component_Info
             return (cpu, architecture);
         }
 
-        string GetProcessorArchitecture(int i)
+        static string GetProcessorArchitecture(int i)
         {
             switch (i)
             {
@@ -92,7 +93,7 @@ namespace PC_Component_Info
             }
         }
 
-        public (int threads, int cores) GetCoresAndThreads()
+        public static (int threads, int cores) GetCoresAndThreads()
         {
             int threads = Environment.ProcessorCount;
             int cores = 0;
@@ -105,42 +106,43 @@ namespace PC_Component_Info
             return (threads, cores);
         }
 
-        public (int l2cache, int l3cahce, int maxCache) GetCacheSize()
+        public static (double l2cache, double l3cahce, double maxCache) GetCacheSize()
         {
-            int l2 = 0;
-            int l3 = 0;
-            int max = 0;
+            double l2 = 0;
+            double l3 = 0;
+            double max = 0;
 
             foreach (var item in new System.Management.ManagementObjectSearcher("Select * from Win32_Processor").Get())
             {
-                l3 = int.Parse(item["L3CacheSize"].ToString());
-                l2 = int.Parse(item["L2CacheSize"].ToString());
+                l3 = double.Parse(item["L3CacheSize"].ToString()) / 1024d;
+                l2 = double.Parse(item["L2CacheSize"].ToString()) / 1024d;
             }
 
             ManagementClass mgmtc = new ManagementClass("Win32_CacheMemory");
             foreach (ManagementObject o in mgmtc.GetInstances())
             {
-                max = int.Parse(o["MaxCacheSize"].ToString());
+                max = double.Parse(o["MaxCacheSize"].ToString()) / 1024d;
             }
 
             return (l2, l3, max);
         }
 
-        public (int maxSpeed, int currentSpeed) GetCPUClockSpeed()
+        public static (double maxSpeed, double currentSpeed) GetCPUClockSpeed()
         {
-            int max = 0;
-            int current = 0;
+            double max = 0;
+            double current = 0;
 
             foreach (var item in new System.Management.ManagementObjectSearcher("Select * from Win32_Processor").Get())
             {
-                current = int.Parse(item["CurrentClockSpeed"].ToString()) / 1000;
-                max = int.Parse(item["MaxClockSpeed"].ToString()) / 1000;
+                current = double.Parse(item["CurrentClockSpeed"].ToString()) / 1000d;
+                max = double.Parse(item["MaxClockSpeed"].ToString()) / 1000d;
             }
 
             return (max, current);
         }
 
-        public long GetInstalledRam()
+        //Ram
+        public static long GetInstalledRam()
         {
             ManagementScope oMs = new ManagementScope();
             ObjectQuery oQuery = new ObjectQuery("SELECT Capacity FROM Win32_PhysicalMemory");
@@ -156,29 +158,29 @@ namespace PC_Component_Info
             return MemSize / 1073741824;
         }
 
-        public double GetTotalUsableRam()
+        public static double GetTotalUsableRam()
         {
             ComputerInfo ci = new ComputerInfo();
             return Math.Round(ci.TotalPhysicalMemory / 1073741824f, 3);
         }
 
-        public double GetAvailableRam()
+        public static double GetHardwareReservedRam()
+        {
+            return Math.Round(GetInstalledRam() - GetTotalUsableRam(), 3);
+        }
+
+        public static double GetAvailableRam()
         {
             ComputerInfo ci = new ComputerInfo();
             return Math.Round(ci.AvailablePhysicalMemory / 1073741824f, 3);
         }
 
-        public double GetUsedRam()
+        public static double GetUsedRam()
         {
             return Math.Round(GetTotalUsableRam() - GetAvailableRam(), 3);
         }
 
-        public double GetHardwareReservedRam()
-        {
-            return Math.Round(GetInstalledRam() - GetTotalUsableRam(), 3);
-        }
-
-        public (string manufacturer, string frequency, string voltage) GetRamInfo()
+        public static (string manufacturer, string frequency, string voltage) GetRamInfo()
         {
             string manufacturer = "";
             string freq = "";
@@ -191,14 +193,15 @@ namespace PC_Component_Info
             ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_PhysicalMemory"); ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query); foreach (ManagementObject queryObj in searcher.Get())
             {
                 manufacturer = queryObj["Manufacturer"].ToString();
-                freq = queryObj["ConfiguredClockSpeed"] + " MHz";
-                voltage = queryObj["ConfiguredVoltage"] + "V";
+                freq = queryObj["ConfiguredClockSpeed"] + " MT/s";
+                voltage = double.Parse(queryObj["ConfiguredVoltage"].ToString()) / 1000d + "V";
             }
 
             return (manufacturer, freq, voltage);
         }
 
-        public (string manufacturer, string model) Getmainboard()
+        //Motherboard
+        public static (string manufacturer, string model) GetMotherboard()
         {
             string manufacturer = "";
             string model = "";
@@ -213,7 +216,7 @@ namespace PC_Component_Info
             return (manufacturer, model);
         }
 
-        public (string manufacturer, string versionName, string version) GetBIOSInfo()
+        public static (string manufacturer, string versionName, string version) GetBIOSInfo()
         {
             string manufacturer = "";
             string versionName = "";
@@ -230,7 +233,8 @@ namespace PC_Component_Info
             return (manufacturer, versionName, version);
         }
 
-        public (long vram, string name, string DriverVersion) GetGraphicscardInfo()
+        //Graphics
+        public static (long vram, string name, string DriverVersion) GetGraphicscardInfo()
         {
             string name = "";
             string driver = "";

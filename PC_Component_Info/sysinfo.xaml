@@ -8,19 +8,60 @@
       d:DesignHeight="545" d:DesignWidth="1080"
       Title="sysinfo">
 
-    <StackPanel>
+    <StackPanel Margin="5">
         <TabControl Background="#ff303030" BorderThickness="0" >
-            <TabItem Style="{StaticResource TabItemMC}" Header="General">
+            <TabItem Style="{StaticResource TabItemMC}" Header="Your PC">
+                <StackPanel>
+                    <TextBlock Foreground="White" Text="Environment" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_MaschineName" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_Username" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_OSwA" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_OSPlatform" Foreground="White" FontSize="13" Margin="0,5" />
 
-            </TabItem>
-            <TabItem Style="{StaticResource TabItemMC}" Header="Motherboard">
+                    <TextBlock Foreground="White" Text="Motherboard" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_MBManufacturer" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_MBModel" Foreground="White" FontSize="13" Margin="0,5" />
 
+                    <TextBlock Foreground="White" Text="BIOS" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_BIOSManufacturer" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_BiosVersion" Foreground="White" FontSize="13" Margin="0,5" />
+                </StackPanel>
             </TabItem>
             <TabItem Style="{StaticResource TabItemMC}" Header="Processors">
+                <StackPanel>
+                    <TextBlock Foreground="White" Text="Central Processing Unit" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_CPUName" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_CPUArchitecture" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_Threads" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_Cores" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_L2Cache" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_L3Cache" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_BaseClockSpeed" Foreground="White" FontSize="13" Margin="0,5" />
 
+                    <TextBlock Foreground="White" Text="Graphicscard" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_GraphicsName" Foreground="White" FontSize="13" Margin="0,5" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="TB_Vram" Foreground="White" FontSize="13" Margin="0,5" />
+                        <!--Info für Vram angabe-->
+                    </StackPanel>
+                    <TextBlock x:Name="TB_DriverVersion" Foreground="White" FontSize="13" Margin="0,5" />
+                </StackPanel>
             </TabItem>
             <TabItem Style="{StaticResource TabItemMC}" Header="Ram">
+                <StackPanel>
+                    <TextBlock Foreground="White" Text="General" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <TextBlock x:Name="TB_RamManufacturer" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_InstalledRam" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_TotalUsableRam" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_HardwareReserved" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_RamSpeed" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_RamVoltage" Foreground="White" FontSize="13" Margin="0,5" />
 
+                    <TextBlock Foreground="White" Text="Utilization" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" />
+                    <ProgressBar x:Name="PB_Ram" Minimum="0" Maximum="100" Foreground="White" Width="250" HorizontalAlignment="Left" Margin="0,5" />
+                    <TextBlock x:Name="TB_UsedRam" Foreground="White" FontSize="13" Margin="0,5" />
+                    <TextBlock x:Name="TB_AvailableRam" Foreground="White" FontSize="13" Margin="0,5" />
+                </StackPanel>
             </TabItem>
         </TabControl>
     </StackPanel>
