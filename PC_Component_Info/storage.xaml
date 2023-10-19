@@ -18,8 +18,8 @@
         <StackPanel Grid.Column="0" Margin="0,20,0,0">
             <Label x:Name="LBL_drive_name" FontWeight="Bold" FontSize="14" Margin="20, 10, 0, 0" Foreground="White"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <ProgressBar x:Name="PB_Drive" Height="25" Margin="20, 10, 20, 0" IsIndeterminate="False" Foreground="{x:Static SystemParameters.WindowGlassBrush}" Width="520"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <ProgressBar x:Name="PB_Drive" Height="25" Margin="20, 10, 20, 0" IsIndeterminate="False" Foreground="{x:Static SystemParameters.WindowGlassBrush}" Width="350" HorizontalAlignment="Left"/>
                 <Label x:Name="LBL_percent" Foreground="White"/>
             </StackPanel>
 
