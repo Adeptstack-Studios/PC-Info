@@ -29,13 +29,30 @@
             <Label x:Name="LBL_tfs_di" HorizontalContentAlignment="Left" Margin="20, 10, 20, 0" Foreground="White"/>
         </StackPanel>
 
-        <ListView Grid.Column="1" Margin="75,20,25,20" x:Name="LV_1" MouseDoubleClick="LV_1_MouseDoubleClick" Background="Transparent"  Foreground="White">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Erkannte Laufwerke" Width="120"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <StackPanel Grid.Column="1" Margin="50,20,25,20" >
+            <TextBlock Text="Ready Devices" Foreground="White" FontWeight="Medium" FontSize="16" />
+            <ListBox x:Name="LV_1" SelectionChanged="LV_1_SelectionChanged" Background="Transparent" Foreground="White">
+                <ListBox.ItemTemplate >
+                    <DataTemplate >
+                        <Border Background="#ff272727" CornerRadius="10" Width="135" Height="35" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="44" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Image Source="{Binding Icon}" Width="24" Height="24" HorizontalAlignment="Left" Margin="0,0,0,0" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Medium" VerticalAlignment="Center" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
 
     </Grid>
 </Page>

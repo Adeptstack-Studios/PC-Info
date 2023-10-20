@@ -1,0 +1,19 @@
+﻿<Window x:Class="PC_Component_Info.Icons"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Component_Info"
+        mc:Ignorable="d"
+        Title="Icons" Height="260" Width="300" Background="#ff222222">
+    <StackPanel Margin="10">
+        <TextBlock Text="Icons" FontWeight="Medium" FontSize="16" Foreground="White" />
+        <Button Margin="0,10,0,0" Style="{StaticResource CustomButton}" Click="Button_Click" Content="Hdd icons created by Icongeek26 - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_2" Content="Unknown icons created by Prashanth Rapolu 15 - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_3" Content="CD icons created by Vectors Market - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_1" Content="Usb icons created by Those Icons - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_4" Content="Ram Memory icons created by surang - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_5" Content="Server icons created by Pixel perfect - Flaticon" />
+        <Button Margin="0,5,0,0" Style="{StaticResource CustomButton}" Click="Button_Click_6" Content="Database icons created by Muhammad Atif - Flaticon" />
+    </StackPanel>
+</Window>

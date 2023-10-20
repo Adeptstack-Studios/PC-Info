@@ -128,16 +128,19 @@
 
             <Border Background="#ff303030" Margin="20,10,5,40" CornerRadius="20" Grid.Column="0" >
                 <StackPanel Grid.Column="0" Margin="8,20,8,0" >
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="Laufwerke" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 5" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="Drives" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 5" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="System Infos" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="Feedback &amp; Support" Click="help_about_Click" Margin="0,330,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="Schließen" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="Exit" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
                     <TextBlock Text="{x:Static local:Vars.version}" Foreground="White" TextAlignment="Center" />
                 </StackPanel>
             </Border>
 
             <Border Background="#ff303030" Margin="5,10,20,40" CornerRadius="20" Grid.Column="1" x:Name="Frame" >
-                <Frame x:Name="PageFrame_1" Grid.Column="1" NavigationUIVisibility="Hidden" Width="{Binding ElementName=Frame, Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                <Grid>
+                    <Frame x:Name="PageFrame_1" Grid.Column="1" NavigationUIVisibility="Hidden" Width="{Binding ElementName=Frame, Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                    <Frame x:Name="PageFrame_2" Grid.Column="1" NavigationUIVisibility="Hidden" Width="{Binding ElementName=Frame, Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                </Grid>
             </Border>
 
         </Grid>

@@ -49,6 +49,12 @@ namespace PC_Component_Info
         {
             Process.Start("https://adeptstack.vercel.app/privacy");
         }
+
+        private void icons_Click(object sender, RoutedEventArgs e)
+        {
+            Icons icons = new Icons();
+            icons.Show();
+        }
     }
 
 }

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -23,13 +22,13 @@ namespace PC_Component_Info
             read();
             timer();
 
-            pcdr.drive_info(Vars.ready_devices[0]);
+            pcdr.DriveInfo(Vars.ready_devices[0].DriveLetter);
 
             LBL_drive_name.Content = pcdr.name_vl;
-            LBL_Type_di.Content = "Typ: " + pcdr.dt;
-            LBL_format_di.Content = "Datei Format: " + pcdr.df;
-            LBL_ts_di.Content = "Gesamter Speicherplatz: " + pcdr.ts + "GB";
-            LBL_tfs_di.Content = "Freier Speicherplatz: " + pcdr.tfs + "GB";
+            LBL_Type_di.Content = "Type: " + pcdr.dt;
+            LBL_format_di.Content = "File format: " + pcdr.df;
+            LBL_ts_di.Content = "Total memory: " + pcdr.ts + " GB";
+            LBL_tfs_di.Content = "Free memory: " + pcdr.tfs + " GB";
             PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
 
             PB_Drive.Maximum = pcdr.ts;
@@ -44,7 +43,7 @@ namespace PC_Component_Info
         {
             for (int i = 0; i < Vars.drives.Length; i++)
             {
-                pcdr.Drive_Read(Vars.drives[i]);
+                pcdr.DriveRead(Vars.drives[i]);
             }
         }
 
@@ -58,10 +57,7 @@ namespace PC_Component_Info
 
             timer.Tick += new EventHandler(delegate (object s, EventArgs a)
             {
-
                 it += 1;
-
-                Console.WriteLine("control" + it);
 
                 Vars.ready_devices.Clear();
                 read();
@@ -71,42 +67,37 @@ namespace PC_Component_Info
 
                 LV_1.ItemsSource = null;
                 LV_1.ItemsSource = Vars.ready_devices;
-
-                if (Vars.page == 2 || Vars.page == 0)
-                {
-                    timer.Stop();
-                }
-
             });
 
             timer.Start();
         }
 
-        private void LV_1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void LV_1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            pcdr.drive_info(Vars.ready_devices[LV_1.SelectedIndex]);
-
-            LBL_drive_name.Content = pcdr.name_vl;
-            LBL_Type_di.Content = "Typ: " + pcdr.dt;
-            LBL_format_di.Content = "Datei Format: " + pcdr.df;
-            LBL_ts_di.Content = "Gesamter Speicherplatz: " + pcdr.ts + "GB";
-            LBL_tfs_di.Content = "Freier Speicherplatz: " + pcdr.tfs + "GB";
-            PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
-
-            PB_Drive.Maximum = pcdr.ts;
-            PB_Drive.Minimum = 0;
-            PB_Drive.Value = pcdr.ts - pcdr.tfs;
-
-            if ((pcdr.ts - pcdr.tfs) / pcdr.ts * 100 >= 85)
+            if (LV_1.SelectedIndex >= 0 && LV_1.SelectedIndex < Vars.ready_devices.Count)
             {
-                PB_Drive.Foreground = Brushes.Red;
-            }
-            else
-            {
-                PB_Drive.Foreground = SystemParameters.WindowGlassBrush;
-            }
+                pcdr.DriveInfo(Vars.ready_devices[LV_1.SelectedIndex].DriveLetter);
 
+                LBL_drive_name.Content = pcdr.name_vl;
+                LBL_Type_di.Content = "Type: " + pcdr.dt;
+                LBL_format_di.Content = "File format: " + pcdr.df;
+                LBL_ts_di.Content = "Total memory: " + pcdr.ts + " GB";
+                LBL_tfs_di.Content = "Free memory: " + pcdr.tfs + " GB";
+                PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
 
+                PB_Drive.Maximum = pcdr.ts;
+                PB_Drive.Minimum = 0;
+                PB_Drive.Value = pcdr.ts - pcdr.tfs;
+
+                if ((pcdr.ts - pcdr.tfs) / pcdr.ts * 100 >= 85)
+                {
+                    PB_Drive.Foreground = Brushes.Red;
+                }
+                else
+                {
+                    PB_Drive.Foreground = SystemParameters.WindowGlassBrush;
+                }
+            }
         }
     }
 }

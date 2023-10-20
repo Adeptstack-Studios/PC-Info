@@ -130,8 +130,6 @@ namespace PC_Component_Info
         public int select_index = 2;
         public int selected_index;
 
-        SystemInfo si = new SystemInfo();
-
 
         public MainWindow()
         {
@@ -152,6 +150,8 @@ namespace PC_Component_Info
                 Close();
             };
 
+            PageFrame_1.Content = new storage();
+            PageFrame_2.Content = new sysinfo();
             selected_index = 2;
             page_index_bg();
         }
@@ -223,18 +223,18 @@ namespace PC_Component_Info
             if (selected_index == 1)
             {
 
-                PageFrame_1.Content = new storage();
+                PageFrame_1.Visibility = Visibility.Visible;
+                PageFrame_2.Visibility = Visibility.Collapsed;
                 storage_btn.Background = SystemParameters.WindowGlassBrush;
                 sys_info_btn.Background = Brushes.Transparent;
-                Vars.page = 1;
             }
 
             if (selected_index == 2)
             {
-                PageFrame_1.Content = new sysinfo();
+                PageFrame_1.Visibility = Visibility.Collapsed;
+                PageFrame_2.Visibility = Visibility.Visible;
                 storage_btn.Background = Brushes.Transparent;
                 sys_info_btn.Background = SystemParameters.WindowGlassBrush;
-                Vars.page = 2;
             }
         }
 

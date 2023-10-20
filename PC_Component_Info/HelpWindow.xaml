@@ -20,9 +20,10 @@
                 <Label Foreground="White" Content="You need help? " x:Name="LBL_Links" FontWeight="Bold" FontSize="14"/>
                 <Button Height="22" Style="{StaticResource CustomButton}" x:Name="H_LI_BTN" Content="Changelog" Click="H_LI_BTN_Click"/>
                 <Button Height="22" Style="{StaticResource CustomButton}" x:Name="update" Content="Update" Click="update_Click"/>
-                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="website" Content="Webseite" Click="website_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="website" Content="Website" Click="website_Click"/>
                 <Button Height="22" Style="{StaticResource CustomButton}" x:Name="privacy" Content="Privacy" Click="privacy_Click"/>
                 <Button Height="22" Style="{StaticResource CustomButton}" x:Name="github" Content="GitHub" Click="github_Click"/>
+                <Button Height="22" Style="{StaticResource CustomButton}" x:Name="icons" Content="Icons" Click="icons_Click"/>
             </StackPanel>
         </Grid>
     </Border>

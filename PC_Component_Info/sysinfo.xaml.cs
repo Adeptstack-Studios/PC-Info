@@ -105,12 +105,6 @@ namespace PC_Component_Info
                 {
                     PB_Ram.Foreground = SystemParameters.WindowGlassBrush;
                 }
-
-                if (Vars.page == 1 || Vars.page == 0)
-                {
-                    timer.Stop();
-                }
-
             });
 
             timer.Start();

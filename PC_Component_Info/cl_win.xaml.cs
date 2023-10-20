@@ -11,10 +11,15 @@ namespace PC_Component_Info
         {
             InitializeComponent();
 
-            TB_cl.Text = "Neuigkeiten:\n" +
-                         "---" +
-                         "\n\nFixes & Änderungen:\n" +
-                         "- updated links";
+            TB_cl.Text = "News:\n" +
+                         "- New arrangement of PC data.\n" +
+                         "- Further PC data is read out: Motherboard, BIOS, CPU cache, various manufacturers and more.\n" +
+                         "- \"Ready Devices\" design revised.\n" +
+                         "\n\nFixes & Changes:\n" +
+                         "- Progressbar now also displays the percentage.\n" +
+                         "- Translated into English.\n" +
+                         "- Code refactoring.\n" +
+                         "- UI & technical improvements.";
 
         }
     }

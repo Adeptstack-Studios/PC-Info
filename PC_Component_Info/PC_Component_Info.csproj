@@ -98,6 +98,10 @@
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DriveReader.cs" />
+    <Compile Include="Icons.xaml.cs">
+      <DependentUpon>Icons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListContexts\Drives.cs" />
     <Compile Include="SystemInfo.cs" />
     <Compile Include="storage.xaml.cs">
       <DependentUpon>storage.xaml</DependentUpon>
@@ -111,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +186,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cloud.png" />
+    <Resource Include="Images\disc.png" />
+    <Resource Include="Images\hard-disk.png" />
+    <Resource Include="Images\prohibited.png" />
+    <Resource Include="Images\ram-memory.png" />
+    <Resource Include="Images\unknown.png" />
+    <Resource Include="Images\usb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
