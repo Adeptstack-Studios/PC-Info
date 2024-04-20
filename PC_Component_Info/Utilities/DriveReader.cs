@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Utilities
 {
     class DriveReader
     {
@@ -23,25 +23,25 @@ namespace PC_Component_Info
                 switch (di_1.DriveType)
                 {
                     case DriveType.Unknown:
-                        icon = "Images/unknown.png";
+                        icon = "../Images/unknown.png";
                         break;
                     case DriveType.NoRootDirectory:
-                        icon = "Images/prohibited.png";
+                        icon = "../Images/prohibited.png";
                         break;
                     case DriveType.Removable:
-                        icon = "Images/usb.png";
+                        icon = "../Images/usb.png";
                         break;
                     case DriveType.Fixed:
-                        icon = "Images/hard-disk.png";
+                        icon = "../Images/hard-disk.png";
                         break;
                     case DriveType.Network:
-                        icon = "Images/cloud.png";
+                        icon = "../Images/cloud.png";
                         break;
                     case DriveType.CDRom:
-                        icon = "Images/disk.png";
+                        icon = "../Images/disk.png";
                         break;
                     case DriveType.Ram:
-                        icon = "Images/ram-memory.png";
+                        icon = "../Images/ram-memory.png";
                         break;
                     default:
                         break;

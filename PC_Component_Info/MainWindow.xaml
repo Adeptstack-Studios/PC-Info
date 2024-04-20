@@ -106,7 +106,7 @@
                 <ColumnDefinition Width="135"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal" Height="40" HorizontalAlignment="Left">
-                <Image Source="PCInfo.ico" Margin="10,-0" Height="48" Width="48" />
+                <Image Source="/Images/PCInfo.ico" Margin="10,-0" Height="48" Width="48" />
             </StackPanel>
             <Grid Grid.Column="1">
                 <TextBlock Background="Transparent" />
@@ -132,7 +132,7 @@
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="System Infos" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="Feedback &amp; Support" Click="help_about_Click" Margin="0,330,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
                     <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="Exit" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
-                    <TextBlock Text="{x:Static local:Vars.version}" Foreground="White" TextAlignment="Center" />
+                    <TextBlock Text="{x:Static local:Utilities.Vars.version}" Foreground="White" TextAlignment="Center" />
                 </StackPanel>
             </Border>
 

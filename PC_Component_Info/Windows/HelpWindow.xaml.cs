@@ -1,7 +1,8 @@
-﻿using System.Diagnostics;
+﻿using PC_Component_Info.Utilities;
+using System.Diagnostics;
 using System.Windows;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Windows
 {
     /// <summary>
     /// Interaktionslogik für HelpWindow.xaml
@@ -26,7 +27,7 @@ namespace PC_Component_Info
 
         private void H_LI_BTN_Click(object sender, RoutedEventArgs e)
         {
-            cl_win clw = new cl_win();
+            ChangelogWindow clw = new();
             clw.Show();
         }
 
@@ -52,7 +53,7 @@ namespace PC_Component_Info
 
         private void icons_Click(object sender, RoutedEventArgs e)
         {
-            Icons icons = new Icons();
+            IconsWindow icons = new();
             icons.Show();
         }
     }

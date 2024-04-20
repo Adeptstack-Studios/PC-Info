@@ -1,20 +1,21 @@
-﻿using System;
+﻿using PC_Component_Info.Utilities;
+using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Pages
 {
     /// <summary>
     /// Interaktionslogik für storage.xaml
     /// </summary>
-    public partial class storage : Page
+    public partial class StoragePage : Page
     {
         DriveReader pcdr = new DriveReader();
 
-        public storage()
+        public StoragePage()
         {
             InitializeComponent();
 

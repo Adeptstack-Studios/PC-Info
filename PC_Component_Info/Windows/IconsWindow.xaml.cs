@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Windows
 {
     /// <summary>
     /// Interaktionslogik für Icons.xaml
     /// </summary>
-    public partial class Icons : Window
+    public partial class IconsWindow : Window
     {
-        public Icons()
+        public IconsWindow()
         {
             InitializeComponent();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PC_Component_Info.Pages;
+using PC_Component_Info.Windows;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
@@ -150,8 +152,8 @@ namespace PC_Component_Info
                 Close();
             };
 
-            PageFrame_1.Content = new storage();
-            PageFrame_2.Content = new sysinfo();
+            PageFrame_1.Content = new StoragePage();
+            PageFrame_2.Content = new SysInfoPage();
             selected_index = 2;
             page_index_bg();
         }

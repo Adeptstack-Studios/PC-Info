@@ -1,7 +1,7 @@
 ﻿using PC_Component_Info.ListContexts;
 using System.Collections.Generic;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Utilities
 {
     internal class Vars
     {

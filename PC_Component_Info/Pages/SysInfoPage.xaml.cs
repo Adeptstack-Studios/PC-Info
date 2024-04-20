@@ -1,4 +1,5 @@
-﻿using PLP_SystemInfo;
+﻿using PC_Component_Info.Utilities;
+using PLP_SystemInfo;
 using PLP_SystemInfo.Collections;
 using PLP_SystemInfo.ComponentInfo;
 using PLP_SystemInfo.Models;
@@ -8,18 +9,18 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace PC_Component_Info
+namespace PC_Component_Info.Pages
 {
     /// <summary>
     /// Interaktionslogik für sysinfo.xaml
     /// </summary>
-    public partial class sysinfo : Page
+    public partial class SysInfoPage : Page
     {
         ProcessorCollection processors;
         GraphicsCollection graphics;
         RamCollection ram;
 
-        public sysinfo()
+        public SysInfoPage()
         {
             InitializeComponent();
             processors = ProcessorInfo.GetProcessors();
@@ -89,10 +90,10 @@ namespace PC_Component_Info
         {
             //Ram
             TB_InstalledRam.Text = $"Installed Ram: {RamInfo.GetInstalledRAMSize()} GB";
-            TB_TotalUsableRam.Text = $"Total Usable Ram: {PCInfo.GetTotalUsableRam()} GB";
-            TB_HardwareReserved.Text = $"Reserved for hardware: {PCInfo.GetHardwareReservedRam()} GB";
-            TB_UsedRam.Text = $"Ram used: {PCInfo.GetUsedRam()} GB";
-            TB_AvailableRam.Text = $"Free ram: {PCInfo.GetAvailableRam()} GB";
+            TB_TotalUsableRam.Text = $"Total Usable Ram: {RamInfo.GetTotalUsableRam()} GB";
+            TB_HardwareReserved.Text = $"Reserved for hardware: {RamInfo.GetHardwareReservedRam()} MB";
+            TB_UsedRam.Text = $"Ram used: {RamInfo.GetRamInUse()} GB";
+            TB_AvailableRam.Text = $"Free ram: {RamInfo.GetAvailableRam()} GB";
 
             for (int i = 0; i < ram.Count; i++)
             {
@@ -121,11 +122,11 @@ namespace PC_Component_Info
             {
                 i += 1;
 
-                double ramPercent = Math.Round(PCInfo.GetUsedRam() / PCInfo.GetTotalUsableRam(), 4) * 100;
-                TB_UsedRam.Text = $"Ram used: {PCInfo.GetUsedRam()} GB";
-                TB_AvailableRam.Text = $"Free ram: {PCInfo.GetAvailableRam()} GB";
-                PB_Ram.Value = ramPercent;
-                PB_Ram.Tag = $"{ramPercent}%";
+                double ramPercent = Math.Round(RamInfo.GetRamInUse() / RamInfo.GetTotalUsableRam(), 4) * 100;
+                TB_UsedRam.Text = $"Ram used: {Math.Round(RamInfo.GetRamInUse(), 3)} GB";
+                TB_AvailableRam.Text = $"Free ram: {RamInfo.GetAvailableRam()} GB";
+                PB_Ram.Value = Math.Round(ramPercent, 2);
+                PB_Ram.Tag = $"{Math.Round(ramPercent, 2)}%";
 
                 if (PB_Ram.Value / PB_Ram.Maximum >= 0.85)
                 {
