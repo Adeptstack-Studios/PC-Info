@@ -5,7 +5,7 @@ namespace PC_Component_Info
 {
     internal class Vars
     {
-        public static string version = "v1.3.0";
+        public static string version = "v1.4.0";
 
         public static string[] drives = new string[26]
         {
