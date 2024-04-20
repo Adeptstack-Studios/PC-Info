@@ -1,4 +1,5 @@
 ﻿using PC_Component_Info.Pages;
+using PC_Component_Info.Utilities;
 using PC_Component_Info.Windows;
 using System;
 using System.Runtime.InteropServices;
@@ -152,10 +153,11 @@ namespace PC_Component_Info
                 Close();
             };
 
-            PageFrame_1.Content = new StoragePage();
+            Data.Create();
+            PageFrame_1.Content = new TasksPage();
             PageFrame_2.Content = new SysInfoPage();
-            selected_index = 2;
-            page_index_bg();
+            PageFrame_3.Content = new StoragePage();
+            page_index_bg(2);
         }
 
         protected override void OnActivated(EventArgs e)
@@ -186,21 +188,24 @@ namespace PC_Component_Info
             Application.Current.Shutdown();
         }
 
-        private void storage_btn_Click(object sender, RoutedEventArgs e)
+        private void tasksBtn_Click(object sender, RoutedEventArgs e)
         {
-            selected_index = 1;
-            page_index_bg();
+            page_index_bg(1);
         }
 
         private void sys_info_btn_Click(object sender, RoutedEventArgs e)
         {
-            selected_index = 2;
-            page_index_bg();
+            page_index_bg(2);
+        }
+
+        private void storage_btn_Click(object sender, RoutedEventArgs e)
+        {
+            page_index_bg(3);
         }
 
         private void File_Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void help_about_Click(object sender, RoutedEventArgs e)
@@ -209,34 +214,35 @@ namespace PC_Component_Info
             hw.Show();
         }
 
-        private void refresh_speed_Click(object sender, RoutedEventArgs e)
+        public void page_index_bg(int index)
         {
-
-        }
-
-        private void default_card_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        public void page_index_bg()
-        {
-
-            if (selected_index == 1)
+            if (index == 1)
             {
 
                 PageFrame_1.Visibility = Visibility.Visible;
                 PageFrame_2.Visibility = Visibility.Collapsed;
-                storage_btn.Background = SystemParameters.WindowGlassBrush;
+                PageFrame_3.Visibility = Visibility.Collapsed;
+                tasksBtn.Background = SystemParameters.WindowGlassBrush;
                 sys_info_btn.Background = Brushes.Transparent;
+                storage_btn.Background = Brushes.Transparent;
             }
-
-            if (selected_index == 2)
+            else if (index == 2)
             {
                 PageFrame_1.Visibility = Visibility.Collapsed;
                 PageFrame_2.Visibility = Visibility.Visible;
-                storage_btn.Background = Brushes.Transparent;
+                PageFrame_3.Visibility = Visibility.Collapsed;
+                tasksBtn.Background = Brushes.Transparent;
                 sys_info_btn.Background = SystemParameters.WindowGlassBrush;
+                storage_btn.Background = Brushes.Transparent;
+            }
+            else if (index == 3)
+            {
+                PageFrame_1.Visibility = Visibility.Collapsed;
+                PageFrame_2.Visibility = Visibility.Collapsed;
+                PageFrame_3.Visibility = Visibility.Visible;
+                tasksBtn.Background = Brushes.Transparent;
+                sys_info_btn.Background = Brushes.Transparent;
+                storage_btn.Background = SystemParameters.WindowGlassBrush;
             }
         }
 
