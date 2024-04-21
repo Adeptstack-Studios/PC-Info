@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AssemblyName>PC-Info</AssemblyName>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -85,6 +85,9 @@
     <SplashScreen Include="Images\SplashScreen.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Fonts\FAbrands.otf" />
+    <Resource Include="Fonts\FAregular.otf" />
+    <Resource Include="Fonts\FAsolid900.otf" />
     <Resource Include="Images\PCInfo.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -119,5 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Timer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\FAbrands.otf" />
+    <None Remove="Fonts\FAregular.otf" />
+    <None Remove="Fonts\FAsolid900.otf" />
   </ItemGroup>
 </Project>

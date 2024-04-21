@@ -15,13 +15,29 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Border Background="#272727" CornerRadius="20,20,0,0" >
+            <Border Background="{StaticResource DarkerCards}" CornerRadius="20,20,0,0" >
                 <Grid>
                     <TextBlock Text="Processes" VerticalAlignment="Center" Margin="15" Foreground="White" FontFamily="Leelawadee" FontSize="16" FontWeight="Bold" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
-                        <Button Style="{StaticResource LinkButtonBG}" Content="New Task" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="newTaskBtn" Click="newTaskBtn_Click" />
-                        <Button Style="{StaticResource LinkButtonBG}" Content="Kill Task" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="killTaskBtn" Click="killTaskBtn_Click" />
-                        <Button Style="{StaticResource LinkButtonBG}" Content="Efficiency mode" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="efficiencyModeBtn" Click="efficiencyModeBtn_Click" />
+                        <Button Margin="5,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="newTaskBtn" Click="newTaskBtn_Click" >
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="&#x2b;" FontFamily="{StaticResource FAregular}" VerticalAlignment="Center" />
+                                <TextBlock Text="New Task" Margin="7.5,0,0,0" FontSize="16" />
+                            </StackPanel>
+                        </Button>
+                        <Border Background="White" Width="1" />
+                        <Button Margin="5,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="killTaskBtn" Click="killTaskBtn_Click" >
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                <TextBlock Text="&#xf05e;" FontFamily="{StaticResource FAsolid}" VerticalAlignment="Center" />
+                                <TextBlock Text="Kill Task" Margin="7.5,0,0,0" FontSize="16" />
+                            </StackPanel>
+                        </Button>
+                        <Button Margin="5,0,10,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="LimeGreen" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="efficiencyModeBtn" Click="efficiencyModeBtn_Click" >
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" VerticalAlignment="Center" />
+                                <TextBlock Text="Efficiency mode" Margin="7.5,0,0,0" FontSize="16" />
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -41,7 +57,7 @@
                                             <TextBlock Text="{Binding ProcessName}" Margin="10,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Leelawadee" />
                                         </StackPanel>
                                         <StackPanel Visibility="{Binding EfficiencyVisibility}" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
-                                            <TextBlock Text="E" FontSize="24" FontWeight="Bold" Foreground="White" />
+                                            <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" FontSize="24" FontWeight="Bold" Foreground="White" />
                                         </StackPanel>
                                     </Grid>
                                 </Border>
@@ -67,7 +83,7 @@
                                             <TextBlock Text="{Binding ProcessName}" Margin="10,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Leelawadee" />
                                         </StackPanel>
                                         <StackPanel Visibility="{Binding EfficiencyVisibility}" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
-                                            <TextBlock Text="E" FontSize="24" FontWeight="Bold" Foreground="White" />
+                                            <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" FontSize="16" FontWeight="Bold" Foreground="LimeGreen" ToolTip="Efficiency Mode" />
                                         </StackPanel>
                                     </Grid>
                                 </Border>

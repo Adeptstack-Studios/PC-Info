@@ -336,7 +336,7 @@ namespace PC_Component_Info.Pages
         {
             DispatcherTimer timer = new DispatcherTimer();
 
-            timer.Interval = TimeSpan.FromMilliseconds(5000);
+            timer.Interval = TimeSpan.FromMilliseconds(2000);
 
             timer.Tick += new EventHandler(delegate (object s, EventArgs a)
             {
