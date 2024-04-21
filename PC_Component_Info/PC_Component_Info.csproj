@@ -82,9 +82,6 @@
     <AssemblyOriginatorKeyFile>Adeptstack.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <SplashScreen Include="Images\SplashScreen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Fonts\FAbrands.otf" />
     <Resource Include="Fonts\FAregular.otf" />
     <Resource Include="Fonts\FAsolid900.otf" />
@@ -127,5 +124,9 @@
     <None Remove="Fonts\FAbrands.otf" />
     <None Remove="Fonts\FAregular.otf" />
     <None Remove="Fonts\FAsolid900.otf" />
+    <None Remove="Images\PCInfoSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\PCInfoSplash.png" />
   </ItemGroup>
 </Project>

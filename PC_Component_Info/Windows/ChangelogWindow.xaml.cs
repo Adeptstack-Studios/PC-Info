@@ -15,6 +15,7 @@ namespace PC_Component_Info.Windows
                          "- Added Tasks section, for managing tasks.\n" +
                          "- The information from more than one device will now be read out.\n" +
                          "\n\nFixes & Changes:\n" +
+                         "- changed splashscreen\n" +
                          "- upgraded to .Net 8.\n" +
                          "- PC-Info is now based on PLP-SystemInfo.\n" +
                          "- minor design changes.\n" +

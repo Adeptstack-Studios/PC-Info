@@ -237,6 +237,8 @@ namespace PC_Component_Info.Pages
                     return true;
                 case "sihost":
                     return true;
+                case "systemsettings":
+                    return true;
                 default:
                     return false;
             }
