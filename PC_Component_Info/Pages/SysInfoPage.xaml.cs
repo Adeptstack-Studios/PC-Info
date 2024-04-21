@@ -1,5 +1,4 @@
-﻿using PC_Component_Info.Utilities;
-using PLP_SystemInfo;
+﻿using PLP_SystemInfo;
 using PLP_SystemInfo.Collections;
 using PLP_SystemInfo.ComponentInfo;
 using PLP_SystemInfo.Models;
@@ -46,7 +45,6 @@ namespace PC_Component_Info.Pages
             TB_MaschineName.Text = $"Machinename: {SystemInfo.MachineName}";
             TB_Username.Text = $"Username: {SystemInfo.UserName}";
             TB_OSwA.Text = $"Operatingsystem: {OSInfo.GetOperatingSystemInfo()}";
-            TB_OSPlatform.Text = $"OS Platform: {PCInfo.GetOSPlatform()}";
             TB_MBManufacturer.Text = $"Manufacturer: {mb.Manufacturer}";
             TB_MBModel.Text = $"Model: {mb.Model}";
             TB_BIOSManufacturer.Text = $"Manufacturer: {bios.Manufacturer}";

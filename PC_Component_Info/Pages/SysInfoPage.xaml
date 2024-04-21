@@ -18,7 +18,6 @@
                             <TextBlock x:Name="TB_MaschineName" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
                             <TextBlock x:Name="TB_Username" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
                             <TextBlock x:Name="TB_OSwA" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
-                            <TextBlock x:Name="TB_OSPlatform" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
                         </StackPanel>                     
                     </Border>
 
