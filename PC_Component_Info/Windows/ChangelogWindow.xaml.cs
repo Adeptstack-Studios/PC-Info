@@ -12,8 +12,8 @@ namespace PC_Component_Info.Windows
             InitializeComponent();
 
             TB_cl.Text = "News:\n" +
+                         "- Added Tasks section, for managing tasks.\n" +
                          "- The information from more than one device will now be read out.\n" +
-                         "- \n" +
                          "\n\nFixes & Changes:\n" +
                          "- upgraded to .Net 8.\n" +
                          "- PC-Info is now based on PLP-SystemInfo.\n" +
