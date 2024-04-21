@@ -64,7 +64,6 @@ namespace PC_Component_Info.Pages
                 read();
 
                 DriveInfo di = new DriveInfo(@"C:\");
-                Console.WriteLine(di.VolumeLabel);
 
                 LV_1.ItemsSource = null;
                 LV_1.ItemsSource = Vars.ready_devices;

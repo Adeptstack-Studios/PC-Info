@@ -40,10 +40,20 @@
                                             <Image Source="{Binding ImagePath}" Height="32" Width="32" Margin="5" />
                                             <TextBlock Text="{Binding ProcessName}" Margin="10,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Leelawadee" />
                                         </StackPanel>
+                                        <StackPanel Visibility="{Binding EfficiencyVisibility}" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
+                                            <TextBlock Text="E" FontSize="24" FontWeight="Bold" Foreground="White" />
+                                        </StackPanel>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Kill Task" Click="killTaskBtn_Click" />
+                                <MenuItem Header="Efficiency Mode" Click="efficiencyModeBtn_Click" />
+                                <MenuItem Header="Open Filepath" Click="openFilePathBtn_Click" />
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
                     </ListBox>
 
                     <TextBlock Text="Background Tasks" FontSize="18" Margin="5,20,0,0" Foreground="White" FontFamily="Leelawadee" FontWeight="Bold" />
@@ -56,10 +66,20 @@
                                             <Image Source="{Binding ImagePath}" Height="32" Width="32" Margin="5" />
                                             <TextBlock Text="{Binding ProcessName}" Margin="10,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Leelawadee" />
                                         </StackPanel>
+                                        <StackPanel Visibility="{Binding EfficiencyVisibility}" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
+                                            <TextBlock Text="E" FontSize="24" FontWeight="Bold" Foreground="White" />
+                                        </StackPanel>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Kill Task" Click="killTaskBtn_Click" />
+                                <MenuItem Header="Efficiency Mode" Click="efficiencyModeBtn_Click" />
+                                <MenuItem Header="Open Filepath" Click="openFilePathBtn_Click" />
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
                     </ListBox>
                 </StackPanel>
             </ScrollViewer>
