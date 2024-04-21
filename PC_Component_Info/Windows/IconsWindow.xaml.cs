@@ -15,37 +15,37 @@ namespace PC_Component_Info.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/hdd");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/hdd") { UseShellExecute = true });
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/usb");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/usb") { UseShellExecute = true });
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/unknown");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/unknown") { UseShellExecute = true });
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/cd");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/cd") { UseShellExecute = true });
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/ram-memory");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/ram-memory") { UseShellExecute = true });
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/server");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/server") { UseShellExecute = true });
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.flaticon.com/free-icons/database");
+            Process.Start(new ProcessStartInfo("https://www.flaticon.com/free-icons/database") { UseShellExecute = true });
         }
     }
 }

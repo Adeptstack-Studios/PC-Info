@@ -57,7 +57,7 @@
                                             <TextBlock Text="{Binding ProcessName}" Margin="10,0" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Leelawadee" />
                                         </StackPanel>
                                         <StackPanel Visibility="{Binding EfficiencyVisibility}" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
-                                            <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" FontSize="24" FontWeight="Bold" Foreground="White" />
+                                            <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" FontSize="16" FontWeight="Bold" Foreground="LimeGreen" ToolTip="Efficiency Mode" />
                                         </StackPanel>
                                     </Grid>
                                 </Border>

@@ -33,22 +33,22 @@ namespace PC_Component_Info.Windows
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://adeptstack.vercel.app/PC-InfoDownload");
+            Process.Start(new ProcessStartInfo("https://adeptstack.net/PC-InfoDownload") { UseShellExecute = true });
         }
 
         private void website_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://adeptstack.vercel.app");
+            Process.Start(new ProcessStartInfo("https://adeptstack.net") { UseShellExecute = true });
         }
 
         private void github_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/Adeptstack-Studios/PC-Info");
+            Process.Start(new ProcessStartInfo("https://github.com/Adeptstack-Studios/PC-Info") { UseShellExecute = true });
         }
 
         private void privacy_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://adeptstack.vercel.app/privacy");
+            Process.Start(new ProcessStartInfo("https://adeptstack.net/privacy") { UseShellExecute = true });
         }
 
         private void icons_Click(object sender, RoutedEventArgs e)
