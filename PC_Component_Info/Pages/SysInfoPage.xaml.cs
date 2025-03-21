@@ -3,6 +3,7 @@ using PLP_SystemInfo.Collections;
 using PLP_SystemInfo.ComponentInfo;
 using PLP_SystemInfo.Models;
 using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -22,18 +23,25 @@ namespace PC_Component_Info.Pages
         public SysInfoPage()
         {
             InitializeComponent();
-            processors = ProcessorInfo.GetProcessors();
+
             graphics = GraphicsInfo.GetGraphicscardInfo();
             ram = RamInfo.GetRamInfo();
+            Thread t = new Thread(GetProcessorInfo);
+            t.Start();
 
             SetValues();
             timer();
         }
 
+        void GetProcessorInfo()
+        {
+            processors = ProcessorInfo.GetProcessors();
+            Processors();
+        }
+
         void SetValues()
         {
             YourPC();
-            Processors();
             Ram();
         }
 
@@ -56,15 +64,18 @@ namespace PC_Component_Info.Pages
             //Processors
             for (int i = 0; i < processors.Count; i++)
             {
-                lbCPU.Items.Add($"CPU{i}");
+                Application.Current.Dispatcher.Invoke(() => lbCPU.Items.Add($"CPU{i}"));
             }
 
             for (int i = 0; i < graphics.Count; i++)
             {
-                lbGPU.Items.Add($"GPU{i}");
+                Application.Current.Dispatcher.Invoke(() => lbGPU.Items.Add($"GPU{i}"));
             }
-            lbCPU.SelectedIndex = 0;
-            lbGPU.SelectedIndex = 0;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                lbCPU.SelectedIndex = 0;
+                lbGPU.SelectedIndex = 0;
+            });
         }
 
         void ShowProcessor(int index)

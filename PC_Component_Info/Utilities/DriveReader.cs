@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace PC_Component_Info.Utilities
 {
@@ -14,6 +15,7 @@ namespace PC_Component_Info.Utilities
 
         public void DriveRead(string drive)
         {
+            DateTime start = DateTime.Now;
             DriveInfo di_1 = new DriveInfo(drive);
 
             if (di_1.IsReady)
@@ -55,6 +57,9 @@ namespace PC_Component_Info.Utilities
                     Icon = icon
                 });
             }
+
+            TimeSpan secs = DateTime.Now - start;
+            //MessageBox.Show($"drive: {drive} - {secs.TotalSeconds}s");
         }
 
         public void DriveInfo(string drive)
