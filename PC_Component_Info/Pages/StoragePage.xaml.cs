@@ -63,10 +63,10 @@ namespace PC_Component_Info.Pages
                 pcdr.DriveInfo(Vars.ready_devices[LV_1.SelectedIndex].DriveLetter);
 
                 LBL_drive_name.Content = pcdr.name_vl;
-                LBL_Type_di.Content = "Type: " + pcdr.dt;
-                LBL_format_di.Content = "File format: " + pcdr.df;
-                LBL_ts_di.Content = "Total memory: " + pcdr.ts + " GB";
-                LBL_tfs_di.Content = "Free memory: " + pcdr.tfs + " GB";
+                LBL_Type_di.Content = $"{Lang.Lang.tbType}: " + pcdr.dt;
+                LBL_format_di.Content = $"{Lang.Lang.File_Format}: " + pcdr.df;
+                LBL_ts_di.Content = $"{Lang.Lang.tbTotalMem}: " + pcdr.ts + " GB";
+                LBL_tfs_di.Content = $"{Lang.Lang.tbFreeMem}: " + pcdr.tfs + " GB";
                 PB_Drive.Tag = Math.Round((((pcdr.ts - pcdr.tfs) / pcdr.ts) * 100), 2) + "%";
 
                 PB_Drive.Maximum = pcdr.ts;

@@ -11,16 +11,10 @@ namespace PC_Component_Info.Windows
         {
             InitializeComponent();
 
-            TB_cl.Text = "News:\n" +
-                         "- Added Tasks section, for managing tasks.\n" +
-                         "- The information from more than one device will now be read out.\n" +
-                         "\n\nFixes & Changes:\n" +
-                         "- changed splashscreen\n" +
-                         "- upgraded to .Net 8.\n" +
-                         "- PC-Info is now based on PLP-SystemInfo.\n" +
-                         "- minor design changes.\n" +
-                         "- Code refactoring.\n" +
-                         "- UI & technical improvements.";
+            TB_cl.Text = $"{Lang.Lang.tbNews}:\n" +
+                         $"{Lang.Lang.clNews}\n" +
+                         $"\n{Lang.Lang.tbFixesChanges}:\n" +
+                         $"{Lang.Lang.clChangesFixes}";
 
         }
     }

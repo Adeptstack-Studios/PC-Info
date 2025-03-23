@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Component_Info"
         xmlns:utils="clr-namespace:PC_Component_Info.Utilities"
+        xmlns:lang="clr-namespace:PC_Component_Info.Lang"
         mc:Ignorable="d"
         Title="PC Info" MinHeight="658" MinWidth="1180" MaxHeight="658" MaxWidth="1180" WindowStyle="None" x:Name="mainwindow" StateChanged="mainwindow_StateChanged">
 
@@ -121,8 +122,8 @@
                 <TextBlock Text="PC-Info" Foreground="White" x:Name="TB_Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Medium" />
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Column="4" Height="40" WindowChrome.IsHitTestVisibleInChrome="True" HorizontalAlignment="Right">
-                <Button Width="45" Foreground="White" FontWeight="Black" x:Name="min_btn" ToolTip="Minimize" Content="___" FontSize="12" Padding="0,0,0,8" Style="{StaticResource WindowBTN}" />
-                <Button Width="45" Foreground="White" FontWeight="Medium" x:Name="close_btn" ToolTip="Close" Content="X" FontSize="18" Style="{StaticResource WindowCloseBTN}" />
+                <Button Width="45" Foreground="White" FontWeight="Black" x:Name="min_btn" ToolTip="{x:Static lang:Lang.tpMinimize}" Content="___" FontSize="12" Padding="0,0,0,8" Style="{StaticResource WindowBTN}" />
+                <Button Width="45" Foreground="White" FontWeight="Medium" x:Name="close_btn" ToolTip="{x:Static lang:Lang.tpClose}" Content="X" FontSize="18" Style="{StaticResource WindowCloseBTN}" />
             </StackPanel>
         </Grid>
 
@@ -134,11 +135,11 @@
 
             <Border Background="#ff303030" Margin="20,10,5,40" CornerRadius="20" Grid.Column="0" >
                 <StackPanel Grid.Column="0" Margin="8,20,8,0" >
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="Tasks" x:Name="tasksBtn" Click="tasksBtn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="System Infos" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="Drives" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 5" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="Feedback &amp; Support" Click="help_about_Click" Margin="0,270,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
-                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="Exit" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="{x:Static lang:Lang.btnTasks}" x:Name="tasksBtn" Click="tasksBtn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="{x:Static lang:Lang.btnSysInfo}" x:Name="sys_info_btn" Click="sys_info_btn_Click" Padding="10, 10, 0, 10" Margin="0, 5, 0, 10" HorizontalContentAlignment="Left" Cursor="Hand"  BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" Content="{x:Static lang:Lang.btnDrives}" x:Name="storage_btn" Click="storage_btn_Click" Padding="10, 10, 0, 10" Margin="0, 10, 0, 5" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="White" x:Name="HuÜI" Content="{x:Static lang:Lang.btnFeedback}" Click="help_about_Click" Margin="0,270,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" BorderThickness="0"/>
+                    <Button FontWeight="Medium" FontSize="14" Background="Transparent" Style="{StaticResource CustomButton}" Foreground="OrangeRed" x:Name="Exit" Content="{x:Static lang:Lang.btnExit}" Click="Exit_Click" Margin="0,5,0,5" Padding="10,10,0,10" HorizontalContentAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" BorderThickness="0"/>
                     <TextBlock Text="{x:Static utils:Vars.version}" Foreground="White" TextAlignment="Center" />
                 </StackPanel>
             </Border>

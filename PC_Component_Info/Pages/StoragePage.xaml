@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Component_Info"
+      xmlns:lang="clr-namespace:PC_Component_Info.Lang"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1030"
       Title="storage">
@@ -31,7 +32,7 @@
         </Border>
 
         <StackPanel Grid.Column="1" Margin="50,20,25,20" >
-            <TextBlock Text="Ready Devices" Foreground="White" FontWeight="Medium" FontSize="16" FontFamily="Leelawadee" />
+            <TextBlock Text="{x:Static lang:Lang.tbDrives}" Foreground="White" FontWeight="Medium" FontSize="16" FontFamily="Leelawadee" />
             <ListBox x:Name="LV_1" SelectionChanged="LV_1_SelectionChanged" Background="Transparent" Foreground="White">
                 <ListBox.ItemTemplate >
                     <DataTemplate >

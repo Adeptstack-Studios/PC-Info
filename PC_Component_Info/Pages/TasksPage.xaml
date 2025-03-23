@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Component_Info.Pages"
+      xmlns:lang="clr-namespace:PC_Component_Info.Lang"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TasksPage">
@@ -17,25 +18,25 @@
         <Grid Grid.Row="0">
             <Border Background="{StaticResource DarkerCards}" CornerRadius="20,20,0,0" >
                 <Grid>
-                    <TextBlock Text="Processes" VerticalAlignment="Center" Margin="15" Foreground="White" FontFamily="Leelawadee" FontSize="16" FontWeight="Bold" />
+                    <TextBlock Text="{x:Static lang:Lang.tbProcesses}" VerticalAlignment="Center" Margin="15" Foreground="White" FontFamily="Leelawadee" FontSize="16" FontWeight="Bold" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0" VerticalAlignment="Center">
                         <Button Margin="5,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="newTaskBtn" Click="newTaskBtn_Click" >
                             <StackPanel Orientation="Horizontal" >
                                 <TextBlock Text="&#x2b;" FontFamily="{StaticResource FAregular}" VerticalAlignment="Center" />
-                                <TextBlock Text="New Task" Margin="7.5,0,0,0" FontSize="16" />
+                                <TextBlock Text="{x:Static lang:Lang.btnNewTask}" Margin="7.5,0,0,0" FontSize="16" />
                             </StackPanel>
                         </Button>
                         <Border Background="White" Width="1" />
                         <Button Margin="5,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="White" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="killTaskBtn" Click="killTaskBtn_Click" >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                                 <TextBlock Text="&#xf05e;" FontFamily="{StaticResource FAsolid}" VerticalAlignment="Center" />
-                                <TextBlock Text="Kill Task" Margin="7.5,0,0,0" FontSize="16" />
+                                <TextBlock Text="{x:Static lang:Lang.btnKillTask}" Margin="7.5,0,0,0" FontSize="16" />
                             </StackPanel>
                         </Button>
                         <Button Margin="5,0,10,0" Style="{StaticResource LinkButtonBG}" Padding="25,7" Foreground="LimeGreen" FontSize="14" FontFamily="Leelawadee" Background="#272727" x:Name="efficiencyModeBtn" Click="efficiencyModeBtn_Click" >
                             <StackPanel Orientation="Horizontal" >
                                 <TextBlock Text="&#xf4d8;" FontFamily="{StaticResource FAsolid}" VerticalAlignment="Center" />
-                                <TextBlock Text="Efficiency mode" Margin="7.5,0,0,0" FontSize="16" />
+                                <TextBlock Text="{x:Static lang:Lang.btnEffMode}" Margin="7.5,0,0,0" FontSize="16" />
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -46,7 +47,7 @@
         <Grid Grid.Row="1" >
             <ScrollViewer x:Name="sv1" Margin="10,10,0,10" >
                 <StackPanel >
-                    <TextBlock Text="Apps" FontSize="18" Margin="5,5,0,0" Foreground="White" FontFamily="Leelawadee" FontWeight="Bold" />
+                    <TextBlock Text="{x:Static lang:Lang.tbApps}" FontSize="18" Margin="5,5,0,0" Foreground="White" FontFamily="Leelawadee" FontWeight="Bold" />
                     <ListBox x:Name="lbTasks" Foreground="White" Style="{StaticResource LBNoScroller}" SelectionChanged="lbTasks_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -65,14 +66,14 @@
                         </ListBox.ItemTemplate>
                         <ListBox.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Kill Task" Click="killTaskBtn_Click" />
-                                <MenuItem Header="Efficiency Mode" Click="efficiencyModeBtn_Click" />
-                                <MenuItem Header="Open Filepath" Click="openFilePathBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.btnKillTask}" Click="killTaskBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.btnEffMode}" Click="efficiencyModeBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.tbOpenFilePath}" Click="openFilePathBtn_Click" />
                             </ContextMenu>
                         </ListBox.ContextMenu>
                     </ListBox>
 
-                    <TextBlock Text="Background Tasks" FontSize="18" Margin="5,20,0,0" Foreground="White" FontFamily="Leelawadee" FontWeight="Bold" />
+                    <TextBlock Text="{x:Static lang:Lang.tbBackgroundTasks}" FontSize="18" Margin="5,20,0,0" Foreground="White" FontFamily="Leelawadee" FontWeight="Bold" />
                     <ListBox x:Name="lbBgTasks" Foreground="White" Style="{StaticResource LBNoScroller}" SelectionChanged="lbBgTasks_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -91,9 +92,9 @@
                         </ListBox.ItemTemplate>
                         <ListBox.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Kill Task" Click="killTaskBtn_Click" />
-                                <MenuItem Header="Efficiency Mode" Click="efficiencyModeBtn_Click" />
-                                <MenuItem Header="Open Filepath" Click="openFilePathBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.btnKillTask}" Click="killTaskBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.btnEffMode}" Click="efficiencyModeBtn_Click" />
+                                <MenuItem Header="{x:Static lang:Lang.tbOpenFilePath}" Click="openFilePathBtn_Click" />
                             </ContextMenu>
                         </ListBox.ContextMenu>
                     </ListBox>

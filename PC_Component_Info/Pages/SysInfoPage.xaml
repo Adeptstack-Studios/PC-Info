@@ -4,15 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PC_Component_Info"
+      xmlns:lang="clr-namespace:PC_Component_Info.Lang"
       mc:Ignorable="d" 
       d:DesignHeight="545" d:DesignWidth="1080"
       Title="sysinfo">
 
     <StackPanel Margin="5">
         <TabControl Background="#ff303030" BorderThickness="0" >
-            <TabItem Style="{StaticResource TabItemMC}" Header="Your PC" FontFamily="Leelawadee">
+            <TabItem Style="{StaticResource TabItemMC}" Header="{x:Static lang:Lang.btnYourPC}" FontFamily="Leelawadee">
                 <StackPanel>
-                    <TextBlock Foreground="White" Text="Environment" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbEnvironment}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10" >
                         <StackPanel>
                             <TextBlock x:Name="TB_MaschineName" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
@@ -21,7 +22,7 @@
                         </StackPanel>                     
                     </Border>
 
-                    <TextBlock Foreground="White" Text="Motherboard" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbMotherboard}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10" >
                         <StackPanel>
                             <TextBlock x:Name="TB_MBManufacturer" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
@@ -29,7 +30,7 @@
                         </StackPanel>
                     </Border>
 
-                    <TextBlock Foreground="White" Text="BIOS" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbBIOS}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10" >
                         <StackPanel>
                             <TextBlock x:Name="TB_BIOSManufacturer" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
@@ -38,9 +39,9 @@
                     </Border>
                 </StackPanel>
             </TabItem>
-            <TabItem Style="{StaticResource TabItemMC}" Header="Processors" FontFamily="Leelawadee">
+            <TabItem Style="{StaticResource TabItemMC}" Header="{x:Static lang:Lang.btnProcessors}" FontFamily="Leelawadee">
                 <StackPanel>
-                    <TextBlock Foreground="White" Text="Central Processing Unit" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbCPU}" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10">
                         <StackPanel>
                             <ListBox x:Name="lbCPU" FontFamily="Leelawadee" FontWeight="Medium" SelectionChanged="lbCPU_SelectionChanged" Style="{StaticResource LB_FullHorizontal}" Foreground="White" HorizontalAlignment="Left" Margin="0,0" Width="500"/>
@@ -55,7 +56,7 @@
                         </StackPanel>
                     </Border>
 
-                    <TextBlock Foreground="White" Text="Graphicscard" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbGraphicscard}" FontWeight="Bold" FontSize="16" Margin="0,15,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10">
                         <StackPanel >
                             <ListBox x:Name="lbGPU" FontFamily="Leelawadee" FontWeight="Medium" SelectionChanged="lbGPU_SelectionChanged" Style="{StaticResource LB_FullHorizontal}" Foreground="White" HorizontalAlignment="Left" Margin="0,0" Width="500"/>
@@ -66,9 +67,9 @@
                     </Border>
                 </StackPanel>
             </TabItem>
-            <TabItem Style="{StaticResource TabItemMC}" Header="Ram" FontFamily="Leelawadee">
+            <TabItem Style="{StaticResource TabItemMC}" Header="{x:Static lang:Lang.btnRAM}" FontFamily="Leelawadee">
                 <StackPanel>
-                    <TextBlock Foreground="White" Text="Modules" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbModules}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10" >
                         <StackPanel>
                             <ListBox x:Name="lbModules" FontFamily="Leelawadee" FontWeight="Medium" SelectionChanged="lbModules_SelectionChanged" Style="{StaticResource LB_FullHorizontal}" Foreground="White" HorizontalAlignment="Left" Margin="0,0" Width="500"/>
@@ -80,7 +81,7 @@
                         </StackPanel>
                     </Border>
 
-                    <TextBlock Foreground="White" Text="General" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbGeneral}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10" >
                         <StackPanel>
                             <TextBlock x:Name="TB_InstalledRam" Foreground="White" FontSize="13" Margin="5" FontFamily="Leelawadee" FontWeight="Medium" />
@@ -89,7 +90,7 @@
                         </StackPanel>
                     </Border>
 
-                    <TextBlock Foreground="White" Text="Utilization" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
+                    <TextBlock Foreground="White" Text="{x:Static lang:Lang.tbUtilization}" FontWeight="Bold" FontSize="16" Margin="0,10,0,0" FontFamily="Leelawadee" />
                     <Border Background="#272727" CornerRadius="20" Padding="10,5,0,10" Margin="0,10">
                         <StackPanel>
                             <ProgressBar x:Name="PB_Ram" Minimum="0" Maximum="100" Foreground="White" Width="250" HorizontalAlignment="Left" Margin="5" />

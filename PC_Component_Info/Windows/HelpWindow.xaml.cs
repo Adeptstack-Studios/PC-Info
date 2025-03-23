@@ -9,15 +9,15 @@ namespace PC_Component_Info.Windows
     /// </summary>
     public partial class HelpWindow : Window
     {
-        public string about = "PC-Info is an official, licensed, modern and easy-to-use \nprogram from Adeptstack to find out what \ncomponents are installed in your PC.";
-        public string lizenz = "This product is an open source project provided by Adeptstack.\nLicense: AGPL-3.0 license\n© Adeptstack. All rights reserved";
+        public string about = Lang.Lang.tbAboutText;
+        public string lizenz = Lang.Lang.tbLicense;
 
         public HelpWindow()
         {
             InitializeComponent();
 
-            LBL_About_Text.Content = about;
-            LBL_Lizenz_Text.Content = lizenz;
+            LBL_About_Text.Text = about;
+            LBL_Lizenz_Text.Text = lizenz;
             LBL_Version.Content = Vars.version;
         }
         private void Exit_BTN_Click(object sender, RoutedEventArgs e)

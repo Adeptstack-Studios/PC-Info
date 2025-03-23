@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_Component_Info"
+        xmlns:lang="clr-namespace:PC_Component_Info.Lang"
         mc:Ignorable="d"
-        Title="Changelog" Height="550" Width="400" Background="#ff222222" Icon="/Images/PCInfo.ico" SizeToContent="Height" MaxHeight="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="{x:Static lang:Lang.tbChangelog}" Height="550" Width="400" Background="#ff222222" Icon="/Images/PCInfo.ico" SizeToContent="Height" MaxHeight="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     
     <StackPanel>
-        <TextBlock Text="Was ist neu in dieser Version" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,20" Foreground="White" />
+        <TextBlock Text="{x:Static lang:Lang.tbWNITV}" FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,20" Foreground="White" />
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="20, 10, 10, 40">
             <TextBlock x:Name="TB_cl" TextWrapping="Wrap" Foreground="White" Width="350"  FontSize="14" FontWeight="Medium"    />

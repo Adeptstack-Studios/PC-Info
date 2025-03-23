@@ -50,13 +50,13 @@ namespace PC_Component_Info.Pages
             //Your PC
             Board mb = BoardInfo.GetMotherboard();
             BIOS bios = BoardInfo.GetBIOSInfo();
-            TB_MaschineName.Text = $"Machinename: {SystemInfo.MachineName}";
-            TB_Username.Text = $"Username: {SystemInfo.UserName}";
-            TB_OSwA.Text = $"Operatingsystem: {OSInfo.GetOperatingSystemInfo()}";
-            TB_MBManufacturer.Text = $"Manufacturer: {mb.Manufacturer}";
-            TB_MBModel.Text = $"Model: {mb.Model}";
-            TB_BIOSManufacturer.Text = $"Manufacturer: {bios.Manufacturer}";
-            TB_BiosVersion.Text = $"Version: {bios.VersionName}";
+            TB_MaschineName.Text = $"{Lang.Lang.tbMaschineName}: {SystemInfo.MachineName}";
+            TB_Username.Text = $"{Lang.Lang.tbUsername}: {SystemInfo.UserName}";
+            TB_OSwA.Text = $"{Lang.Lang.tbOperatingsystem}: {OSInfo.GetOperatingSystemInfo()}";
+            TB_MBManufacturer.Text = $"{Lang.Lang.tbManufacturer}: {mb.Manufacturer}";
+            TB_MBModel.Text = $"{Lang.Lang.tbModel}: {mb.Model}";
+            TB_BIOSManufacturer.Text = $"{Lang.Lang.tbManufacturer}: {bios.Manufacturer}";
+            TB_BiosVersion.Text = $"{Lang.Lang.tbVersion}: {bios.VersionName}";
         }
 
         void Processors()
@@ -67,6 +67,7 @@ namespace PC_Component_Info.Pages
                 Application.Current.Dispatcher.Invoke(() => lbCPU.Items.Add($"CPU{i}"));
             }
 
+            //Graphics
             for (int i = 0; i < graphics.Count; i++)
             {
                 Application.Current.Dispatcher.Invoke(() => lbGPU.Items.Add($"GPU{i}"));
@@ -80,43 +81,43 @@ namespace PC_Component_Info.Pages
 
         void ShowProcessor(int index)
         {
-            TB_CPUName.Text = $"Name: {processors[index].Name}";
-            TB_CPUArchitecture.Text = $"Architecture: {processors[index].Architecture}";
-            TB_Threads.Text = $"Threads: {processors[index].Threads}";
-            TB_Cores.Text = $"Cores: {processors[index].Cores}";
+            TB_CPUName.Text = $"{Lang.Lang.tbName}: {processors[index].Name}";
+            TB_CPUArchitecture.Text = $"{Lang.Lang.tbArchitecture}: {processors[index].Architecture}";
+            TB_Threads.Text = $"{Lang.Lang.tbThreads}: {processors[index].Threads}";
+            TB_Cores.Text = $"{Lang.Lang.tbCores}: {processors[index].Cores}";
             TB_L2Cache.Text = $"L2 Cache: {processors[index].L2Cache} MB";
             TB_L3Cache.Text = $"L3 Cache: {processors[index].L3Cache} MB";
-            TB_BaseClockSpeed.Text = $"Base Clockspeed: {processors[index].MaxClockSpeed} GHz";
+            TB_BaseClockSpeed.Text = $"{Lang.Lang.tbBaseClockSpeed}: {processors[index].MaxClockSpeed} GHz";
         }
 
         void ShowGPU(int index)
         {
-            TB_GraphicsName.Text = $"Name: {graphics[index].Name}";
-            TB_DriverVersion.Text = $"Driverversion: {graphics[index].DriverVersion}";
+            TB_GraphicsName.Text = $"{Lang.Lang.tbName}: {graphics[index].Name}";
+            TB_DriverVersion.Text = $"{Lang.Lang.tbDriverVersion}: {graphics[index].DriverVersion}";
         }
 
         void Ram()
         {
             //Ram
-            TB_InstalledRam.Text = $"Installed Ram: {RamInfo.GetInstalledRAMSize()} GB";
-            TB_TotalUsableRam.Text = $"Total Usable Ram: {RamInfo.GetTotalUsableRam()} GB";
-            TB_HardwareReserved.Text = $"Reserved for hardware: {RamInfo.GetHardwareReservedRam()} MB";
-            TB_UsedRam.Text = $"Ram used: {RamInfo.GetRamInUse()} GB";
-            TB_AvailableRam.Text = $"Free ram: {RamInfo.GetAvailableRam()} GB";
+            TB_InstalledRam.Text = $"{Lang.Lang.tbInstalledRam}: {RamInfo.GetInstalledRAMSize()} GB";
+            TB_TotalUsableRam.Text = $"{Lang.Lang.tbTotalUseableRam}: {RamInfo.GetTotalUsableRam()} GB";
+            TB_HardwareReserved.Text = $"{Lang.Lang.tbResForHW}: {RamInfo.GetHardwareReservedRam()} MB";
+            TB_UsedRam.Text = $"{Lang.Lang.tbRamInUse}: {RamInfo.GetRamInUse()} GB";
+            TB_AvailableRam.Text = $"{Lang.Lang.tbFreeRam}: {RamInfo.GetAvailableRam()} GB";
 
             for (int i = 0; i < ram.Count; i++)
             {
-                lbModules.Items.Add($"Module{i}");
+                lbModules.Items.Add($"{Lang.Lang.tbModules}{i}");
             }
             lbModules.SelectedIndex = 0;
         }
 
         void ShowRamModule(int index)
         {
-            TB_RamManufacturer.Text = $"Manufacturer: {ram[index].Manufacturer}";
-            TB_RamSpeed.Text = $"Transferrate: {ram[index].Frequency}";
-            TB_RamVoltage.Text = $"Voltage: {ram[index].Voltage}V";
-            TB_ModuleSize.Text = $"Capacity: {ram[index].Size}Gb";
+            TB_RamManufacturer.Text = $"{Lang.Lang.tbManufacturer}: {ram[index].Manufacturer}";
+            TB_RamSpeed.Text = $"{Lang.Lang.tbTransferrate}: {ram[index].Frequency}";
+            TB_RamVoltage.Text = $"{Lang.Lang.tbVoltage}: {ram[index].Voltage}V";
+            TB_ModuleSize.Text = $"{Lang.Lang.tbCapacity}: {ram[index].Size}Gb";
         }
 
         private void timer()
@@ -132,8 +133,8 @@ namespace PC_Component_Info.Pages
                 i += 1;
 
                 double ramPercent = Math.Round(RamInfo.GetRamInUse() / RamInfo.GetTotalUsableRam(), 4) * 100;
-                TB_UsedRam.Text = $"Ram used: {Math.Round(RamInfo.GetRamInUse(), 3)} GB";
-                TB_AvailableRam.Text = $"Free ram: {RamInfo.GetAvailableRam()} GB";
+                TB_UsedRam.Text = $"{Lang.Lang.tbRamInUse}: {Math.Round(RamInfo.GetRamInUse(), 3)} GB";
+                TB_AvailableRam.Text = $"{Lang.Lang.tbFreeRam}: {RamInfo.GetAvailableRam()} GB";
                 PB_Ram.Value = Math.Round(ramPercent, 2);
                 PB_Ram.Tag = $"{Math.Round(ramPercent, 2)}%";
 

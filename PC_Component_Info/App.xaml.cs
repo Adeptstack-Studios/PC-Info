@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace PC_Component_Info
 {
@@ -13,5 +7,11 @@ namespace PC_Component_Info
     /// </summary>
     public partial class App : Application
     {
+        App()
+        {
+            // Set the culture of the application to the system culture
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-EN");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CurrentCulture;
+        }
     }
 }
